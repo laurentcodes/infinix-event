@@ -1,13 +1,18 @@
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
+import { Lato } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const lato = Lato({
+	subsets: ['latin'],
+	weight: ['100', '300', '400', '700', '900'],
+});
 
 import logo from '../../public/assets/infinix-logo.png';
 
 export default function Home() {
 	return (
-		<main className='flex flex-col items-center h-screen bg-gradient-to-br from-green-600 to-green-400'>
+		<main
+			className={`flex flex-col items-center h-screen bg-gradient-to-br from-green-600 to-green-400 ${lato.className}`}
+		>
 			<Image alt='Infinix Logo' src={logo} width={200} />
 
 			<form className='flex flex-col gap-3 w-full md:w-1/4 items-center px-6 md:px-0 mt-12'>
@@ -29,6 +34,7 @@ export default function Home() {
 					<input
 						className='p-2 border rounded-md focus:outline-none'
 						type='text'
+						placeholder='Enter Name'
 					/>
 				</div>
 
@@ -37,6 +43,7 @@ export default function Home() {
 					<input
 						className='p-2 border rounded-md focus:outline-none'
 						type='text'
+						placeholder='Enter Handle'
 					/>
 				</div>
 

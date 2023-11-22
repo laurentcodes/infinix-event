@@ -21,6 +21,16 @@ eval("/**\n * Hoists a name from a module or promised module.\n *\n * @param mod
 
 /***/ }),
 
+/***/ "./node_modules/next/font/google/target.css?{\"path\":\"src/pages/index.jsx\",\"import\":\"Lato\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"100\",\"300\",\"400\",\"700\",\"900\"]}],\"variableName\":\"lato\"}":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/pages/index.jsx","import":"Lato","arguments":[{"subsets":["latin"],"weight":["100","300","400","700","900"]}],"variableName":"lato"} ***!
+  \****************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Lato_598ead', '__Lato_Fallback_598ead'\",\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_598ead\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9wYWdlcy9pbmRleC5qc3hcIixcImltcG9ydFwiOlwiTGF0b1wiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXSxcIndlaWdodFwiOltcIjEwMFwiLFwiMzAwXCIsXCI0MDBcIixcIjcwMFwiLFwiOTAwXCJdfV0sXCJ2YXJpYWJsZU5hbWVcIjpcImxhdG9cIn0iLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBLFdBQVcsOEVBQThFO0FBQ3pGO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9pbmZpbml4LWV2ZW50Ly4vbm9kZV9tb2R1bGVzL25leHQvZm9udC9nb29nbGUvdGFyZ2V0LmNzcz8wZWY5Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIEV4cG9ydHNcbm1vZHVsZS5leHBvcnRzID0ge1xuXHRcInN0eWxlXCI6IHtcImZvbnRGYW1pbHlcIjpcIidfX0xhdG9fNTk4ZWFkJywgJ19fTGF0b19GYWxsYmFja181OThlYWQnXCIsXCJmb250U3R5bGVcIjpcIm5vcm1hbFwifSxcblx0XCJjbGFzc05hbWVcIjogXCJfX2NsYXNzTmFtZV81OThlYWRcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./node_modules/next/font/google/target.css?{\"path\":\"src/pages/index.jsx\",\"import\":\"Lato\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"100\",\"300\",\"400\",\"700\",\"900\"]}],\"variableName\":\"lato\"}\n");
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/client/image-component.js":
 /*!**********************************************************!*\
   !*** ./node_modules/next/dist/client/image-component.js ***!
