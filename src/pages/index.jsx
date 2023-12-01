@@ -209,11 +209,11 @@ export default function Home() {
 						<p>Please keep this code as it is your unique identifier.</p>
 						<p>
 							There are terms and conditions as follows:
-							<br />• The winner needs to be there when it is announced.
+							<br />• The winner should be present at the venue when announced.
 							<br />• The winner must possess a valid international passport
 							valid for at least six months.
-							<br />• The event planners and their colleagues within the same
-							firm are not eligible to win.
+							<br />• The event organizers, colleagues and planners are not
+							eligible to win or participate.
 						</p>
 					</div>
 				</Modal.Body>
