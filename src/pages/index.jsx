@@ -21,7 +21,6 @@ export default function Home() {
 		transsionStaff: false,
 	};
 
-	// const [message, setMessage] = useState('');
 	const [attendant, setAttendant] = useState({});
 	const [error, setError] = useState('');
 	const [openModal, setOpenModal] = useState(false);
@@ -109,30 +108,74 @@ export default function Home() {
 					/>
 				</div>
 
-				<div className='flex gap-1 w-full items-center justify-between'>
+				<div className='flex flex-col w-full justify-between'>
 					<label className='font-bold'>
 						6 Months Valid International Passport?
 					</label>
-					<input
-						className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2'
-						type='checkbox'
-						value={formData.validPassport}
-						onChange={(e) =>
-							setFormData({ ...formData, validPassport: e.target.checked })
-						}
-					/>
+
+					<div className='flex'>
+						<div className='flex gap-2 items-center'>
+							<label>Yes</label>
+							<input
+								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
+								type='radio'
+								name='validPassport'
+								value={true}
+								checked={formData.validPassport === true}
+								onChange={() =>
+									setFormData({ ...formData, validPassport: true })
+								}
+							/>
+						</div>
+
+						<div className='flex gap-2 items-center'>
+							<label className='ml-2'>No</label>
+							<input
+								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
+								type='radio'
+								name='validPassport'
+								value={false}
+								checked={formData.validPassport === false}
+								onChange={() =>
+									setFormData({ ...formData, validPassport: false })
+								}
+							/>
+						</div>
+					</div>
 				</div>
 
-				<div className='flex gap-1 w-full items-center justify-between'>
-					<label className='font-bold'>Transsion Staff? (Check if Yes)</label>
-					<input
-						className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2'
-						type='checkbox'
-						value={formData.transsionStaff}
-						onChange={(e) =>
-							setFormData({ ...formData, transsionStaff: e.target.checked })
-						}
-					/>
+				<div className='flex flex-col w-full justify-between'>
+					<label className='font-bold'>Transsion Staff?</label>
+
+					<div className='flex'>
+						<div className='flex gap-2 items-center'>
+							<label>Yes</label>
+							<input
+								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
+								type='radio'
+								name='transsionStaff'
+								value={true}
+								checked={formData.transsionStaff === true}
+								onChange={() =>
+									setFormData({ ...formData, transsionStaff: true })
+								}
+							/>
+						</div>
+
+						<div className='flex gap-2 items-center'>
+							<label className='ml-2'>No</label>
+							<input
+								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
+								type='radio'
+								name='transsionStaff'
+								value={false}
+								checked={formData.transsionStaff === false}
+								onChange={() =>
+									setFormData({ ...formData, transsionStaff: false })
+								}
+							/>
+						</div>
+					</div>
 				</div>
 
 				<button
