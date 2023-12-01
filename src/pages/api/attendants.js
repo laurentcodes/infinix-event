@@ -9,7 +9,7 @@ connectDB();
 export default async function handler(req, res) {
 	const { method } = req;
 
-	const { network, name, handle } = req.body;
+	const { network, name, handle, validPassport, transsionStaff } = req.body;
 
 	if (method === 'GET') {
 		try {
@@ -35,6 +35,8 @@ export default async function handler(req, res) {
 				network,
 				name,
 				handle,
+				validPassport,
+				transsionStaff,
 			});
 
 			await attendant.save();

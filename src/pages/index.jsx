@@ -16,6 +16,8 @@ export default function Home() {
 		network: 'select',
 		name: '',
 		handle: '',
+		validPassport: false,
+		transsionStaff: false,
 	};
 
 	const [message, setMessage] = useState('');
@@ -48,6 +50,8 @@ export default function Home() {
 				}, 3000);
 			});
 	};
+
+	console.log(formData);
 
 	return (
 		<main
@@ -108,6 +112,30 @@ export default function Home() {
 						value={formData.handle}
 						onChange={(e) =>
 							setFormData({ ...formData, handle: e.target.value })
+						}
+					/>
+				</div>
+
+				<div className='flex gap-1 w-full items-center'>
+					<label className='font-bold'>Valid International Passport?</label>
+					<input
+						className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2'
+						type='checkbox'
+						value={formData.validPassport}
+						onChange={(e) =>
+							setFormData({ ...formData, validPassport: e.target.checked })
+						}
+					/>
+				</div>
+
+				<div className='flex gap-1 w-full items-center'>
+					<label className='font-bold'>Transsion Staff?</label>
+					<input
+						className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2'
+						type='checkbox'
+						value={formData.transsionStaff}
+						onChange={(e) =>
+							setFormData({ ...formData, transsionStaff: e.target.checked })
 						}
 					/>
 				</div>

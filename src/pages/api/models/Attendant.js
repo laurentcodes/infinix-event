@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const AttendantSchema = mongoose.Schema({
+import generateUniqueCode from '../util/generateCodes';
+
+const attendantSchema = mongoose.Schema({
 	network: {
 		type: String,
 		enum: ['x', 'facebook', 'instagram'],
@@ -14,11 +16,30 @@ const AttendantSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	code: {
+		type: Number,
+	},
+	validPassport: {
+		type: Boolean,
+		required: true,
+	},
+	transsionStaff: {
+		type: Boolean,
+		required: true,
+	},
 	date: {
 		type: Date,
 		default: Date.now(),
 	},
 });
 
+attendantSchema.pre('save', function (next) {
+	const code = generateUniqueCode();
+
+	this.code = code;
+
+	next();
+});
+
 module.exports =
-	mongoose.models.attendant || mongoose.model('attendant', AttendantSchema);
+	mongoose.models.attendant || mongoose.model('attendant', attendantSchema);

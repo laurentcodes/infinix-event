@@ -5,6 +5,10 @@ export default function Document() {
 		<Html lang='en'>
 			<Head>
 				<title>Infinix - Event</title>
+				<link
+					rel='stylesheet'
+					href='https://unpkg.com/flowbite@1.3.3/dist/flowbite.min.css'
+				/>
 			</Head>
 			<body>
 				<Main />
