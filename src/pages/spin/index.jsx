@@ -11,6 +11,8 @@ import { getAttendants } from '../api/services';
 import logo from '../../../public/assets/infinix-logo.png';
 
 export default function Spin() {
+	const router = useRouter();
+
 	const [loading, setLoading] = useState(false);
 	const [attendants, setAttendants] = useState([]);
 	const [value, setValue] = useState('');
