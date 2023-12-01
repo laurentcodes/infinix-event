@@ -39,10 +39,15 @@ export default async function handler(req, res) {
 				transsionStaff,
 			});
 
-			await attendant.save();
+			const attendantData = await attendant.save();
 
 			res.status(201).json({
-				data: { network, name, handle },
+				data: {
+					network: attendantData.network,
+					name: attendantData.name,
+					handle: attendantData.handle,
+					code: attendantData.code,
+				},
 				status: res.statusCode,
 				message: 'Submitted Successfully',
 			});
