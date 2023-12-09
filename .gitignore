@@ -17,6 +17,10 @@
 # production
 /build
 
+/src/pages/mail
+/src/pages/data
+/public/assets
+
 # misc
 .DS_Store
 *.pem

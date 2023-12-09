@@ -6,7 +6,17 @@ export const getAttendants = async () => {
 	return data;
 };
 
-export const addAttendant = async (value) => {
-	const { data } = await axios.post('/api/attendants', value);
+export const addAttendant = async (values) => {
+	const { data } = await axios.post('/api/attendants', values);
+	return data;
+};
+
+export const sendEmail = async (values) => {
+	const { data } = await axios.post('/api/mail', values);
+	return data;
+};
+
+export const getDetails = async (type = 'fans') => {
+	const { data } = await axios.get(`/api/read-file?type=${type}`);
 	return data;
 };

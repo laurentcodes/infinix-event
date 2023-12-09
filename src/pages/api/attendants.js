@@ -16,6 +16,23 @@ export default async function handler(req, res) {
 			let attendants = await Attendant.find();
 			const count = await Attendant.countDocuments();
 
+			const pipeline = [
+				{
+					$group: {
+						_id: '$handle', // Replace 'fieldName' with your specific field
+						count: { $sum: 1 },
+					},
+				},
+				{
+					$match: {
+						count: { $gt: 1 },
+					},
+				},
+			];
+
+			const duplicates = await Attendant.aggregate(pipeline);
+			console.log('Duplicate entries:', duplicates);
+
 			res.status(200).json({ data: attendants, total: count });
 		} catch (err) {
 			res.status(500).send({

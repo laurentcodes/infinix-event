@@ -46,7 +46,7 @@ export default function Spin() {
 		setTimeout(() => {
 			setOpenModal(true);
 			// setIsExploding(true);
-		}, 2500);
+		}, 11000);
 	};
 
 	if (loading) {
@@ -79,6 +79,7 @@ export default function Spin() {
 							startValue={'     '}
 							value={value}
 							animateUnchanged={true}
+							duration={10}
 							useMonospaceWidth
 							startValueOnce
 							containerClassName='bg-green-300 w-full text-black'
@@ -134,10 +135,10 @@ export default function Spin() {
 									Handle - {winner.network.toUpperCase()}: {winner.handle}
 								</p>
 
-								<p>Has Valid Passport: {winner.validPassport ? 'Yes' : 'No'}</p>
+								{/* <p>Has Valid Passport: {winner.validPassport ? 'Yes' : 'No'}</p>
 								<p>
 									Is Transsion Staff: {winner.transsionStaff ? 'Yes' : 'No'}
-								</p>
+								</p> */}
 							</div>
 						</div>
 					</Modal.Body>
