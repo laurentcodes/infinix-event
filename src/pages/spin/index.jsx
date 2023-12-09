@@ -135,10 +135,10 @@ export default function Spin() {
 									Handle - {winner.network.toUpperCase()}: {winner.handle}
 								</p>
 
-								{/* <p>Has Valid Passport: {winner.validPassport ? 'Yes' : 'No'}</p>
+								<p>Has Valid Passport: {winner.validPassport ? 'Yes' : 'No'}</p>
 								<p>
 									Is Transsion Staff: {winner.transsionStaff ? 'Yes' : 'No'}
-								</p> */}
+								</p>
 							</div>
 						</div>
 					</Modal.Body>
