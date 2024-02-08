@@ -3,7 +3,7 @@ import { Lato } from 'next/font/google';
 import { useState } from 'react';
 import { Modal } from 'flowbite-react';
 
-import { addAttendant } from './api/services';
+import { addUser } from './api/services';
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -14,14 +14,12 @@ import logo from '../../public/assets/infinix-logo.png';
 
 export default function Home() {
 	const initialData = {
-		network: 'select',
 		name: '',
-		handle: '',
-		validPassport: false,
-		transsionStaff: false,
+		email: '',
+		phone: '',
 	};
 
-	const [attendant, setAttendant] = useState({});
+	const [user, setUser] = useState({});
 	const [error, setError] = useState('');
 	const [openModal, setOpenModal] = useState(false);
 
@@ -30,11 +28,11 @@ export default function Home() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		addAttendant(formData)
+		addUser(formData)
 			.then((res) => {
 				setFormData(initialData);
 
-				setAttendant(res.data);
+				setUser(res.data);
 
 				if (res.status === 201) {
 					setOpenModal(true);
@@ -68,23 +66,6 @@ export default function Home() {
 				)}
 
 				<div className='flex flex-col gap-1 w-full'>
-					<label className='font-bold'>Social Network</label>
-					<select
-						className='p-2 border rounded-md focus:outline-none'
-						name='socials'
-						value={formData.network}
-						onChange={(e) =>
-							setFormData({ ...formData, network: e.target.value })
-						}
-					>
-						<option value='select'>Select Network</option>
-						<option value='x'>X</option>
-						<option value='facebook'>Facebook</option>
-						<option value='instagram'>Instagram</option>
-					</select>
-				</div>
-
-				<div className='flex flex-col gap-1 w-full'>
 					<label className='font-bold'>Name</label>
 					<input
 						className='p-2 border rounded-md focus:outline-none'
@@ -96,92 +77,35 @@ export default function Home() {
 				</div>
 
 				<div className='flex flex-col gap-1 w-full'>
-					<label className='font-bold'>Handle</label>
+					<label className='font-bold'>Email</label>
 					<input
 						className='p-2 border rounded-md focus:outline-none'
 						type='text'
-						placeholder='Enter Handle'
-						value={formData.handle}
+						placeholder='Enter Email'
+						value={formData.email}
 						onChange={(e) =>
-							setFormData({ ...formData, handle: e.target.value })
+							setFormData({ ...formData, email: e.target.value })
 						}
 					/>
 				</div>
 
-				<div className='flex flex-col w-full justify-between'>
-					<label className='font-bold'>
-						6 Months Valid International Passport?
-					</label>
-
-					<div className='flex'>
-						<div className='flex gap-2 items-center'>
-							<label>Yes</label>
-							<input
-								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
-								type='radio'
-								name='validPassport'
-								value={true}
-								checked={formData.validPassport === true}
-								onChange={() =>
-									setFormData({ ...formData, validPassport: true })
-								}
-							/>
-						</div>
-
-						<div className='flex gap-2 items-center'>
-							<label className='ml-2'>No</label>
-							<input
-								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
-								type='radio'
-								name='validPassport'
-								value={false}
-								checked={formData.validPassport === false}
-								onChange={() =>
-									setFormData({ ...formData, validPassport: false })
-								}
-							/>
-						</div>
-					</div>
-				</div>
-
-				<div className='flex flex-col w-full justify-between'>
-					<label className='font-bold'>Transsion Staff?</label>
-
-					<div className='flex'>
-						<div className='flex gap-2 items-center'>
-							<label>Yes</label>
-							<input
-								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
-								type='radio'
-								name='transsionStaff'
-								value={true}
-								checked={formData.transsionStaff === true}
-								onChange={() =>
-									setFormData({ ...formData, transsionStaff: true })
-								}
-							/>
-						</div>
-
-						<div className='flex gap-2 items-center'>
-							<label className='ml-2'>No</label>
-							<input
-								className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2'
-								type='radio'
-								name='transsionStaff'
-								value={false}
-								checked={formData.transsionStaff === false}
-								onChange={() =>
-									setFormData({ ...formData, transsionStaff: false })
-								}
-							/>
-						</div>
-					</div>
+				<div className='flex flex-col gap-1 w-full'>
+					<label className='font-bold'>Phone</label>
+					<input
+						className='p-2 border rounded-md focus:outline-none'
+						type='text'
+						placeholder='Enter Phone Number'
+						value={formData.phone}
+						onChange={(e) =>
+							setFormData({ ...formData, phone: e.target.value })
+						}
+					/>
 				</div>
 
 				<button
 					type='submit'
 					className='bg-white px-3 py-2 rounded-md mt-3 w-full enabled:hover:bg-green-800 enabled:hover:text-white enabled:transition-all enabled:duration-500'
-					disabled={!formData.name || !formData.handle}
+					disabled={!formData.name || !formData.email || !formData.phone}
 				>
 					Submit
 				</button>
@@ -200,21 +124,20 @@ export default function Home() {
 				<Modal.Body className='bg-black rounded-b-lg'>
 					<div className='flex flex-col justify-center items-center text-white text-lg gap-3'>
 						<p>
-							Hi, {attendant.name}: ({attendant.handle})
+							Hi, {user.name}: ({user.email})
 						</p>
 						<p>
-							Your Unique Code is{' '}
-							<b className='text-blue-500'>{attendant.code}</b>
+							Your Unique Code is <b className='text-blue-500'>{user.code}</b>
 						</p>
 						<p>Please keep this code as it is your unique identifier.</p>
-						<p>
+						{/* <p>
 							There are terms and conditions as follows:
 							<br />• The winner should be present at the venue when announced.
 							<br />• The winner must possess a valid international passport
 							valid for at least six months.
 							<br />• The event organizers, colleagues and planners are not
 							eligible to win or participate.
-						</p>
+						</p> */}
 					</div>
 				</Modal.Body>
 			</Modal>

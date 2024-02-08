@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Modal } from 'flowbite-react';
 import SlotCounter from 'react-slot-counter';
 
-import { getUsers } from '../api/services';
+import { getAttendants } from '../api/services';
 
 import logo from '../../../public/assets/infinix-logo.png';
 
@@ -14,7 +14,7 @@ export default function Spin() {
 	const router = useRouter();
 
 	const [loading, setLoading] = useState(false);
-	const [users, setUsers] = useState([]);
+	const [attendants, setAttendants] = useState([]);
 	const [value, setValue] = useState('');
 	const [winner, setWinner] = useState(null);
 
@@ -22,9 +22,8 @@ export default function Spin() {
 
 	useEffect(() => {
 		setLoading(true);
-
-		getUsers().then((res) => {
-			setUsers(res.data);
+		getAttendants().then((res) => {
+			setAttendants(res.data);
 			setLoading(false);
 		});
 	}, []);
@@ -35,10 +34,10 @@ export default function Spin() {
 		ref.current?.startAnimation();
 
 		// Generate a random index
-		const randomIndex = Math.floor(Math.random() * users.length);
+		const randomIndex = Math.floor(Math.random() * attendants.length);
 
 		// Access the randomly selected value
-		const randomWinner = users[randomIndex];
+		const randomWinner = attendants[randomIndex];
 		const randomValue = randomWinner.code;
 
 		setWinner(randomWinner);
@@ -72,7 +71,7 @@ export default function Spin() {
 				onClick={() => router.push('/')}
 			/>
 
-			{users.length > 0 ? (
+			{attendants.length > 0 ? (
 				<div className='flex flex-col md:flex-row justify-center items-center gap-6 w-full mt-44'>
 					<div className='bg-green-900 w-full md:w-[50%] py-8 text-center text-5xl rounded-lg'>
 						<SlotCounter
@@ -132,8 +131,9 @@ export default function Spin() {
 								<h3 className='uppercase text-center font-bold'>Winner</h3>
 
 								<p>Name: {winner.name}</p>
-								<p>Email - {winner.email}</p>
-								<p>Phone - {winner.phone}</p>
+								<p>
+									Handle - {winner.network.toUpperCase()}: {winner.handle}
+								</p>
 
 								{/* <p>Has Valid Passport: {winner.validPassport ? 'Yes' : 'No'}</p>
 								<p>
