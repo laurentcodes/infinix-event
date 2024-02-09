@@ -51,6 +51,8 @@ export default function Attendants() {
 						<Table.HeadCell>Name</Table.HeadCell>
 						<Table.HeadCell>Email</Table.HeadCell>
 						<Table.HeadCell>Phone</Table.HeadCell>
+						<Table.HeadCell>State</Table.HeadCell>
+						<Table.HeadCell>Code</Table.HeadCell>
 					</Table.Head>
 
 					<Table.Body className='divide-y'>
@@ -60,6 +62,8 @@ export default function Attendants() {
 									<Table.Cell>{user.name}</Table.Cell>
 									<Table.Cell>{user.email}</Table.Cell>
 									<Table.Cell>{user.phone}</Table.Cell>
+									<Table.Cell>{user.state || '-'}</Table.Cell>
+									<Table.Cell className='font-bold'>{user.code}</Table.Cell>
 								</Table.Row>
 							))}
 					</Table.Body>

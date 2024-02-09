@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	state: {
+		type: String,
+		required: true,
+	},
 	code: {
 		type: Number,
 	},

@@ -17,6 +17,7 @@ export default function Home() {
 		name: '',
 		email: '',
 		phone: '',
+		state: '',
 	};
 
 	const [user, setUser] = useState({});
@@ -102,10 +103,23 @@ export default function Home() {
 					/>
 				</div>
 
+				<div className='flex flex-col gap-1 w-full'>
+					<label className='font-bold'>State</label>
+					<input
+						className='p-2 border rounded-md focus:outline-none'
+						type='text'
+						placeholder='Enter State'
+						value={formData.state}
+						onChange={(e) =>
+							setFormData({ ...formData, state: e.target.value })
+						}
+					/>
+				</div>
+
 				<button
 					type='submit'
 					className='bg-white px-3 py-2 rounded-md mt-3 w-full enabled:hover:bg-green-800 enabled:hover:text-white enabled:transition-all enabled:duration-500'
-					disabled={!formData.name || !formData.email || !formData.phone}
+					disabled={Object.values(formData).some((x) => x === '')}
 				>
 					Submit
 				</button>

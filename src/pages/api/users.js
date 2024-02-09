@@ -9,7 +9,7 @@ connectDB();
 export default async function handler(req, res) {
 	const { method } = req;
 
-	const { name, email, phone } = req.body;
+	const { name, email, phone, state } = req.body;
 
 	if (method === 'GET') {
 		try {
@@ -35,6 +35,7 @@ export default async function handler(req, res) {
 				name,
 				email,
 				phone,
+				state,
 			});
 
 			const userData = await user.save();
@@ -45,6 +46,7 @@ export default async function handler(req, res) {
 					email: userData.email,
 					phone: userData.phone,
 					code: userData.code,
+					state: userData.state,
 				},
 				status: res.statusCode,
 				message: 'Submitted Successfully',
